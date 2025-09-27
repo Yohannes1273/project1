@@ -1,0 +1,16 @@
+# Python cache files
+*.pyc
+__pycache__/
+
+# Django database file
+db.sqlite3
+
+# Log files
+*.log
+
+# Static files (can be regenerated)
+static/
+
+# Environment variables / virtual environment
+.env
+venv/

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Tasks</title>
+    <style>
+      /* Global styling */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: #fff;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        padding: 2rem 3rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        width: 90%;
+        max-width: 500px;
+        text-align: center;
+        animation: fadeIn 0.8s ease-in;
+      }
+
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #fff;
+        letter-spacing: 1px;
+      }
+
+      ul {
+        list-style: none;
+        text-align: left;
+        margin-top: 1rem;
+      }
+
+      li {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.6rem;
+        border-radius: 10px;
+        transition: transform 0.2s ease, background 0.3s ease;
+      }
+
+      li:hover {
+        transform: translateX(8px);
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      a {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.6rem 1.2rem;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        transition: background 0.3s ease;
+      }
+
+      a:hover {
+        background: rgba(255, 255, 255, 0.35);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>📝 My Tasks</h1>
+
+      {% if tasks %}
+      <ul>
+        {% for task in tasks %}
+        <li>{{ task }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No tasks added yet!</p>
+      {% endif %}
+
+      <a href="{% url 'add' %}">➕ Add New Task</a>
+    </div>
+  </body>
+</html>

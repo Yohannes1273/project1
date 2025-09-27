@@ -1,0 +1,17 @@
+{% extends "task2/layout.html" %}
+<!-- layout inheritance -->
+
+{% block body %}
+<div class="card">
+  <h1>Add task</h1>
+
+  <form action="{% url 'add2' %}" method="post">
+    {% csrf_token %}
+    <!--<input type="text" name="task" placeholder="Enter your task" />-->
+    {{form}}
+    <input type="submit" value="Add Task" />
+  </form>
+
+  <a href="{% url 'index2' %}">View Tasks</a>
+</div>
+{% endblock %}

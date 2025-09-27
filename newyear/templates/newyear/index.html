@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy New Year!</title>
+    <link href="{% static 'newyear/styles.css' %}" rel="stylesheet" />
+    <style>
+      /* Reset & basic styles */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      {% if newyear %}
+      <div class="emoji">🎉🥳🎆</div>
+      <h1>Happy New Year!</h1>
+      <p>
+        Welcome to the first day of the year! May it bring you joy and success.
+      </p>
+      {% else %}
+      <div class="emoji">🌟</div>
+      <h1>Welcome!</h1>
+      <p>Today is not New Year, but every day is a chance to shine! 🌈</p>
+      {% endif %}
+      <a href="{% url 'index' %}">Go back Home</a>
+    </div>
+  </body>
+</html>

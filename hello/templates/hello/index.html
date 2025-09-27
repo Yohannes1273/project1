@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Stylish Landing — Your Product</title>
+    <meta
+      name="description"
+      content="A modern stylish landing page template."
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg1: #0f172a; /* deep bg (dark mode) */
+        --bg2: #0b1220;
+        --card: rgba(255, 255, 255, 0.06);
+        --glass: rgba(255, 255, 255, 0.06);
+        --accent: 220 90% 60%;
+        --accent-2: 198 100% 45%;
+        --text: rgba(255, 255, 255, 0.94);
+        --muted: rgba(255, 255, 255, 0.65);
+        --radius: 14px;
+        --glass-border: rgba(255, 255, 255, 0.08);
+        --glass-blur: 10px;
+        --shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+        --glass-padding: 1.25rem;
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+      }
+
+      /* Reset & global */
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        min-height: 100%;
+        color: var(--text);
+        background: radial-gradient(
+            800px 400px at 10% 10%,
+            rgba(99, 102, 241, 0.12),
+            transparent
+          ),
+          radial-gradient(
+            700px 380px at 90% 85%,
+            rgba(56, 189, 248, 0.06),
+            transparent
+          ),
+          linear-gradient(180deg, var(--bg1), var(--bg2));
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      /* Glass panel */
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.02)
+        );
+        border: 1px solid var(--glass-border);
+        backdrop-filter: blur(var(--glass-blur));
+        -webkit-backdrop-filter: blur(var(--glass-blur));
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: calc(var(--glass-padding) + 0.25rem);
+      }
+
+      /* Navigation */
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+      }
+      .brand {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text);
+      }
+      .logo {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        display: inline-grid;
+        place-items: center;
+        background: linear-gradient(
+          135deg,
+          hsl(var(--accent) / 1),
+          hsl(var(--accent-2) / 1)
+        );
+        color: white;
+        font-weight: 800;
+        font-size: 1.05rem;
+        box-shadow: 0 6px 18px rgba(99, 102, 241, 0.16);
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.5rem 0.6rem;
+        border-radius: 8px;
+      }
+      nav a:hover {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      /* Hero */
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 2rem;
+        align-items: center;
+      }
+      .hero-left {
+        padding: 1rem;
+      }
+      .eyebrow {
+        display: inline-block;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.85);
+        background: linear-gradient(
+          90deg,
+          rgba(99, 102, 241, 0.12),
+          rgba(56, 189, 248, 0.07)
+        );
+        padding: 0.35rem 0.6rem;
+        border-radius: 999px;
+        margin-bottom: 0.9rem;
+        font-size: 0.82rem;
+      }
+      h1 {
+        margin: 0 0 0.6rem 0;
+        font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+        line-height: 1.02;
+        letter-spacing: -0.02em;
+        background: linear-gradient(90deg, #fff, rgba(255, 255, 255, 0.85));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      p.lead {
+        margin: 0 0 1.15rem 0;
+        color: var(--muted);
+        max-width: 56ch;
+        line-height: 1.55;
+      }
+      .cta-row {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 0.75rem;
+      }
+      .btn {
+        display: inline-flex;
+        gap: 0.6rem;
+        align-items: center;
+        border: 0;
+        padding: 0.7rem 1rem;
+        font-weight: 700;
+        border-radius: 12px;
+        cursor: pointer;
+        background: linear-gradient(
+          90deg,
+          hsl(var(--accent) / 0.95),
+          hsl(var(--accent-2) / 0.95)
+        );
+        color: white;
+        box-shadow: 0 8px 30px rgba(99, 102, 241, 0.18);
+      }
+      .btn.ghost {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      /* Feature grid */
+      .features {
+        margin-top: 1.25rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.85rem;
+      }
+      .feature {
+        padding: 0.8rem;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.018),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .feature h4 {
+        margin: 0 0 0.35rem 0;
+        font-size: 0.98rem;
+      }
+      .feature p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      /* Right column card */
+      .hero-right {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .stat {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.6rem;
+        padding: 0.8rem;
+        border-radius: 12px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .stat .num {
+        font-weight: 800;
+        font-size: 1.35rem;
+      }
+      .stat small {
+        color: var(--muted);
+      }
+
+      /* Cards / Pricing */
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 1.25rem;
+      }
+      .plan {
+        padding: 1rem;
+        border-radius: 14px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        transition: transform 0.28s ease, box-shadow 0.28s ease;
+      }
+      .plan:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 16px 50px rgba(2, 6, 23, 0.6);
+      }
+      .price {
+        font-size: 1.25rem;
+        font-weight: 800;
+      }
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: var(--muted);
+      }
+      .features-list li {
+        margin: 0.45rem 0;
+        font-size: 0.9rem;
+      }
+
+      /* testimonial */
+      .testimonial {
+        margin-top: 1.25rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+      .avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.06),
+          rgba(255, 255, 255, 0.03)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .quote {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      footer {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* mobile */
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .features {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cards {
+          grid-template-columns: repeat(1, 1fr);
+        }
+        nav ul {
+          display: none;
+        }
+        .mobile-only {
+          display: inline-flex;
+        }
+      }
+      @media (max-width: 560px) {
+        .features {
+          grid-template-columns: 1fr;
+        }
+        .eyebrow {
+          font-size: 0.76rem;
+          padding: 0.3rem 0.5rem;
+        }
+      }
+
+      /* utility */
+      .muted {
+        color: var(--muted);
+      }
+      .center {
+        text-align: center;
+      }
+      .kbd {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        padding: 0.2rem 0.45rem;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      /* small animations */
+      .fade-in {
+        animation: fadeIn 0.7s ease both;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main
+      class="container card fade-in"
+      role="main"
+      aria-labelledby="site-title"
+    >
+      <header>
+        <a class="brand" href="#" aria-label="Home">
+          <span class="logo" aria-hidden="true">S</span>
+          <div>
+            <div style="font-weight: 800">Stylish</div>
+            <div
+              style="font-size: 0.82rem; color: var(--muted); margin-top: 2px"
+            >
+              Landing template
+            </div>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#plans">Plans</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <button
+                class="btn ghost"
+                id="themeToggle"
+                aria-pressed="false"
+                title="Toggle theme"
+              >
+                Toggle
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menuButton"
+          class="mobile-only btn ghost"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          title="Open menu"
+        >
+          Menu
+        </button>
+      </header>
+
+      <section class="hero">
+        <div class="hero-left">
+          <span class="eyebrow">New • 2025</span>
+          <h1 id="site-title">Beautiful interfaces. Thoughtfully crafted.</h1>
+          <p class="lead">
+            A modern, minimal landing page template with glassy components and
+            subtle motion. Great as a portfolio, product page, or quick
+            prototype.
+          </p>
+
+          <div class="cta-row" role="region" aria-label="Actions">
+            <button class="btn" onclick="alert('Welcome! 🎉')">
+              Get started
+            </button>
+            <a class="btn ghost" href="#plans">See plans →</a>
+            <span style="margin-left: auto" class="kbd">Esc to close</span>
+          </div>
+
+          <div class="features" id="features" aria-hidden="false">
+            <div class="feature">
+              <h4>Fast & Lightweight</h4>
+              <p>
+                Simple single-file HTML that loads quickly and is easy to
+                customize.
+              </p>
+            </div>
+            <div class="feature">
+              <h4>Responsive</h4>
+              <p>
+                Looks great at any screen size — mobile-first sensible layout.
+              </p>
+            </div>
+            <div class="feature">
+              <h4>Accessible</h4>
+              <p>
+                Semantic markup, keyboard focus, and color contrast considered.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-right" aria-label="Quick stats">
+          <div class="stat">
+            <div>
+              <div class="num">99.9%</div>
+              <small class="muted">Uptime-ready</small>
+            </div>
+            <div style="font-weight: 700; color: rgba(255, 255, 255, 0.9)">
+              Pro
+            </div>
+          </div>
+
+          <div class="stat">
+            <div>
+              <div class="num">1.2s</div>
+              <small class="muted">Median load</small>
+            </div>
+            <div style="font-weight: 700; color: rgba(255, 255, 255, 0.9)">
+              Fast
+            </div>
+          </div>
+
+          <div class="card" style="padding: 0.75rem">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              "
+            >
+              <div>
+                <div style="font-weight: 800">Try it now</div>
+                <small class="muted">No sign-up required</small>
+              </div>
+              <button
+                class="btn"
+                onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})"
+              >
+                Contact
+              </button>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Mobile menu content (visually hidden by default) -->
+      </section>
+
+      <!-- Pricing / Cards -->
+      <section id="plans" class="cards" aria-label="Pricing plans">
+        <div class="plan">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <small class="muted">Starter</small>
+              <div class="price">
+                $0 <span class="muted" style="font-weight: 600">/ forever</span>
+              </div>
+            </div>
+            <div style="font-weight: 800">Best for demos</div>
+          </div>
+          <ul class="features-list">
+            <li>Single page template</li>
+            <li>Community support</li>
+            <li>Basic components</li>
+          </ul>
+          <div style="margin-top: auto">
+            <button class="btn ghost" onclick="alert('You chose Starter')">
+              Choose
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="plan card"
+          style="border: 1px solid rgba(99, 102, 241, 0.12)"
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <small class="muted">Pro</small>
+              <div class="price">
+                $9 <span class="muted" style="font-weight: 600">/ mo</span>
+              </div>
+            </div>
+            <div style="font-weight: 800">Most popular</div>
+          </div>
+          <ul class="features-list">
+            <li>Premium components</li>
+            <li>Priority support</li>
+            <li>Design tokens</li>
+          </ul>
+          <div style="margin-top: auto">
+            <button class="btn" onclick="alert('You chose Pro — thanks!')">
+              Choose Pro
+            </button>
+          </div>
+        </div>
+
+        <div class="plan">
+          <div
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <div>
+              <small class="muted">Enterprise</small>
+              <div class="price">Contact</div>
+            </div>
+            <div style="font-weight: 800">Custom</div>
+          </div>
+          <ul class="features-list">
+            <li>White-glove onboarding</li>
+            <li>Custom integrations</li>
+            <li>SLA & support</li>
+          </ul>
+          <div style="margin-top: auto">
+            <button class="btn ghost" onclick="alert('We will contact you')">
+              Contact
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- testimonial + contact -->
+      <section
+        style="
+          margin-top: 1.25rem;
+          display: grid;
+          grid-template-columns: 1fr 320px;
+          gap: 1rem;
+          align-items: start;
+        "
+      >
+        <div>
+          <div class="testimonial card">
+            <div class="avatar">JD</div>
+            <div>
+              <div style="font-weight: 800">John Doe</div>
+              <div class="quote">
+                “I used this template as a starting point for a client—fast to
+                customize, and the end result looked fantastic.”
+              </div>
+            </div>
+          </div>
+
+          <footer>
+            <div>© <strong>Stylish</strong> 2025</div>
+            <div class="muted">
+              Made with ♥ •
+              <a href="#" style="color: inherit; text-decoration: underline"
+                >Docs</a
+              >
+            </div>
+          </footer>
+        </div>
+
+        <aside id="contact" class="card" aria-labelledby="contact-title">
+          <h3 id="contact-title" style="margin: 0 0 0.5rem 0">Contact us</h3>
+          <p class="muted" style="margin: 0 0 0.75rem 0">
+            Drop your message and we’ll reply — typically within 24 hours.
+          </p>
+
+          <form onsubmit="submitForm(event)" novalidate>
+            <label
+              style="display: block; font-size: 0.85rem; margin-bottom: 0.3rem"
+              >Email</label
+            >
+            <input
+              id="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+              style="
+                width: 100%;
+                padding: 0.6rem;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.04);
+                background: transparent;
+                color: var(--text);
+                margin-bottom: 0.6rem;
+              "
+            />
+
+            <label
+              style="display: block; font-size: 0.85rem; margin-bottom: 0.3rem"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              rows="4"
+              required
+              placeholder="How can we help?"
+              style="
+                width: 100%;
+                padding: 0.6rem;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.04);
+                background: transparent;
+                color: var(--text);
+                margin-bottom: 0.6rem;
+              "
+            ></textarea>
+
+            <div style="display: flex; gap: 0.5rem">
+              <button class="btn" type="submit">Send message</button>
+              <button type="reset" class="btn ghost">Reset</button>
+            </div>
+          </form>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      // Mobile menu behavior (simple)
+      const menuBtn = document.getElementById("menuButton");
+      menuBtn?.addEventListener("click", () => {
+        const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+        menuBtn.setAttribute("aria-expanded", String(!expanded));
+        if (!expanded) {
+          // create a quick mobile nav
+          const panel = document.createElement("div");
+          panel.id = "mobileMenu";
+          panel.className = "card";
+          panel.style.position = "fixed";
+          panel.style.left = "1rem";
+          panel.style.right = "1rem";
+          panel.style.top = "6rem";
+          panel.style.padding = "1rem";
+          panel.style.zIndex = 9999;
+          panel.innerHTML =
+            '<nav><ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.6rem;"><li><a href="#features">Features</a></li><li><a href="#plans">Plans</a></li><li><a href="#contact">Contact</a></li></ul></nav><div style="margin-top:0.6rem; text-align:right"><button class="btn ghost" id="closeMobile">Close</button></div>';
+          document.body.appendChild(panel);
+          document
+            .getElementById("closeMobile")
+            .addEventListener("click", () => {
+              panel.remove();
+              menuBtn.setAttribute("aria-expanded", "false");
+            });
+        } else {
+          const existing = document.getElementById("mobileMenu");
+          existing?.remove();
+        }
+      });
+
+      // Theme toggle (light/dark-ish) — simple CSS variable swap
+      const themeToggle = document.getElementById("themeToggle");
+      themeToggle?.addEventListener("click", () => {
+        const pressed = themeToggle.getAttribute("aria-pressed") === "true";
+        if (!pressed) {
+          // light-ish
+          document.documentElement.style.setProperty("--bg1", "#f7f9fc");
+          document.documentElement.style.setProperty("--bg2", "#eef4ff");
+          document.documentElement.style.setProperty("--text", "#0b1220");
+          document.documentElement.style.setProperty(
+            "--muted",
+            "rgba(11,18,32,0.6)"
+          );
+          document.documentElement.style.setProperty(
+            "--glass-border",
+            "rgba(11,18,32,0.06)"
+          );
+          document.documentElement.style.setProperty(
+            "--shadow",
+            "0 8px 30px rgba(2,6,23,0.06)"
+          );
+          themeToggle.setAttribute("aria-pressed", "true");
+        } else {
+          // revert dark
+          document.documentElement.style.removeProperty("--bg1");
+          document.documentElement.style.removeProperty("--bg2");
+          document.documentElement.style.removeProperty("--text");
+          document.documentElement.style.removeProperty("--muted");
+          document.documentElement.style.removeProperty("--glass-border");
+          document.documentElement.style.removeProperty("--shadow");
+          themeToggle.setAttribute("aria-pressed", "false");
+        }
+      });
+
+      // Small form handler
+      function submitForm(e) {
+        e.preventDefault();
+        const email = document.getElementById("email").value.trim();
+        const msg = document.getElementById("message").value.trim();
+        if (!email || !msg) {
+          alert("Please provide an email and a message.");
+          return;
+        }
+        // demo: show toast then reset
+        alert("Thanks! We received your message. (Demo)");
+        e.target.reset();
+      }
+
+      // keyboard escape close mobile
+      window.addEventListener("keydown", (ev) => {
+        if (ev.key === "Escape") {
+          const mobile = document.getElementById("mobileMenu");
+          mobile?.remove();
+          menuBtn?.setAttribute("aria-expanded", "false");
+        }
+      });
+    </script>
+  </body>
+</html>

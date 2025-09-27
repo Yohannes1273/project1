@@ -1,0 +1,27 @@
+# Python cache files
+*.pyc
+__pycache__/
+
+# Django database file
+db.sqlite3
+
+# Log files
+*.log
+
+# Static files (can be regenerated)
+static/
+media/
+
+# Environment variables / virtual environment
+.env
+venv/
+ENV/
+env/
+
+# VSCode / IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
